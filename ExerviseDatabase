@@ -1,0 +1,11 @@
+strength: [
+  {
+    name: "新动作名称",
+    duration: 时长,
+    sets: 组数,
+    reps: "次数说明",
+    calories: 消耗卡路里,
+    equipment: "所需器械",
+    muscle: ["锻炼肌肉群"]
+  }
+]
