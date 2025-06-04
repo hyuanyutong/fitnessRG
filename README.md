@@ -281,14 +281,6 @@
             color: #666;
             font-size: 1.2em;
         }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <div class="header">
-            <h1>🎯 智能饮食训练计划生成器</h1>
-            <p>基于个人需求，随机生成科学的一日饮食和训练方案</p>
-        </div>
 
         <div class="content">
             <div class="settings-panel">
