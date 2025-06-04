@@ -683,4 +683,145 @@
             const weight = parseInt(document.getElementById('weight').value);
             const height = parseInt(document.getElementById('height').value);
             const goal = document.getElementById('goal').value;
-            const activity
+            const activity = document.getElementById('activity').value;
+            const workoutDuration = parseInt(document.getElementById('workout_duration').value);
+            const targetCaloriesInput = document.getElementById('target_calories').value;
+
+            // 获取饮食偏好
+            const dietTypes = [];
+            document.querySelectorAll('#diet-types input[type="checkbox"]:checked').forEach(checkbox => {
+                dietTypes.push(checkbox.id);
+            });
+
+            // 获取训练偏好
+            const workoutTypes = [];
+            document.querySelectorAll('#workout-types input[type="checkbox"]:checked').forEach(checkbox => {
+                workoutTypes.push(checkbox.id);
+            });
+
+            // 计算目标卡路里
+            let targetCalories;
+            if (targetCaloriesInput && targetCaloriesInput.trim() !== '') {
+                targetCalories = parseInt(targetCaloriesInput);
+            } else {
+                const bmr = calculateBMR(gender, age, weight, height);
+                const tdee = calculateTDEE(bmr, activity);
+                targetCalories = adjustCaloriesForGoal(tdee, goal);
+            }
+
+            // 生成饮食计划
+            const mealPlan = generateMealPlan(targetCalories, dietTypes);
+            
+            // 生成训练计划
+            const workoutPlan = generateWorkoutPlan(workoutTypes, workoutDuration);
+
+            // 显示结果
+            displayResults(mealPlan, workoutPlan);
+        }
+
+        // 显示结果函数
+        function displayResults(mealPlan, workoutPlan) {
+            const resultsDiv = document.getElementById('results');
+            const mealPlanDiv = document.getElementById('meal-plan');
+            const nutritionSummaryDiv = document.getElementById('nutrition-summary');
+            const workoutPlanDiv = document.getElementById('workout-plan');
+            const workoutSummaryDiv = document.getElementById('workout-summary');
+
+            // 显示饮食计划
+            mealPlanDiv.innerHTML = '';
+            const mealNames = {
+                breakfast: '早餐',
+                lunch: '午餐', 
+                dinner: '晚餐',
+                snacks: '零食'
+            };
+
+            Object.keys(mealPlan.meals).forEach(mealType => {
+                const meal = mealPlan.meals[mealType];
+                const mealSection = document.createElement('div');
+                mealSection.className = 'meal-section';
+                
+                mealSection.innerHTML = `
+                    <h3>${mealNames[mealType]}</h3>
+                    ${meal.foods.map(food => `
+                        <div class="meal-item">
+                            <h4>${food.name}</h4>
+                            <div class="meal-details">
+                                卡路里: ${food.calories} | 蛋白质: ${food.protein}g | 
+                                碳水: ${food.carbs}g | 脂肪: ${food.fat}g
+                            </div>
+                        </div>
+                    `).join('')}
+                `;
+                
+                mealPlanDiv.appendChild(mealSection);
+            });
+
+            // 显示营养总结
+            nutritionSummaryDiv.innerHTML = `
+                <div class="summary-item">
+                    <span class="value">${mealPlan.nutrition.calories}</span>
+                    <span class="label">卡路里</span>
+                </div>
+                <div class="summary-item">
+                    <span class="value">${mealPlan.nutrition.protein}g</span>
+                    <span class="label">蛋白质</span>
+                </div>
+                <div class="summary-item">
+                    <span class="value">${mealPlan.nutrition.carbs}g</span>
+                    <span class="label">碳水化合物</span>
+                </div>
+                <div class="summary-item">
+                    <span class="value">${mealPlan.nutrition.fat}g</span>
+                    <span class="label">脂肪</span>
+                </div>
+            `;
+
+            // 显示训练计划
+            workoutPlanDiv.innerHTML = '';
+            if (workoutPlan.exercises.length > 0) {
+                workoutPlan.exercises.forEach(exercise => {
+                    const exerciseSection = document.createElement('div');
+                    exerciseSection.className = 'workout-section';
+                    
+                    exerciseSection.innerHTML = `
+                        <h3>${exercise.name}</h3>
+                        <div class="exercise-item">
+                            <h4>训练详情</h4>
+                            <div class="exercise-details">
+                                ${exercise.sets} 组 × ${exercise.reps} | 
+                                时长: ${exercise.duration}分钟 | 
+                                消耗: ${exercise.calories}卡路里<br>
+                                器械: ${exercise.equipment} | 
+                                目标肌肉: ${exercise.muscle.join(', ')}
+                            </div>
+                        </div>
+                    `;
+                    
+                    workoutPlanDiv.appendChild(exerciseSection);
+                });
+            } else {
+                workoutPlanDiv.innerHTML = '<p style="text-align: center; color: #666;">请选择至少一种训练类型</p>';
+            }
+
+            // 显示训练总结
+            workoutSummaryDiv.innerHTML = `
+                <div class="summary-item">
+                    <span class="value">${workoutPlan.summary.duration}</span>
+                    <span class="label">分钟</span>
+                </div>
+                <div class="summary-item">
+                    <span class="value">${workoutPlan.summary.calories}</span>
+                    <span class="label">消耗卡路里</span>
+                </div>
+                <div class="summary-item">
+                    <span class="value">${workoutPlan.summary.exercises}</span>
+                    <span class="label">训练动作</span>
+                </div>
+            `;
+
+            // 显示结果区域
+            resultsDiv.classList.remove('hidden');
+            resultsDiv.scrollIntoView({ behavior: 'smooth' });
+        }
+    </script>
