@@ -10,14 +10,12 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
         }
-
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -26,29 +24,24 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
-
         .header {
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             color: white;
             padding: 30px;
             text-align: center;
         }
-
         .header h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
-
         .header p {
             font-size: 1.1em;
             opacity: 0.9;
         }
-
         .content {
             padding: 30px;
         }
-
         .settings-panel {
             background: #f8f9fa;
             border-radius: 15px;
@@ -56,38 +49,32 @@
             margin-bottom: 30px;
             border: 2px solid #e9ecef;
         }
-
         .settings-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin-bottom: 20px;
         }
-
         .setting-group {
             background: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
-
         .setting-group h3 {
             color: #333;
             margin-bottom: 15px;
             font-size: 1.1em;
         }
-
         .form-group {
             margin-bottom: 15px;
         }
-
         label {
             display: block;
             margin-bottom: 5px;
             font-weight: 600;
             color: #555;
         }
-
         input, select {
             width: 100%;
             padding: 10px;
@@ -96,18 +83,15 @@
             font-size: 14px;
             transition: border-color 0.3s;
         }
-
         input:focus, select:focus {
             outline: none;
             border-color: #4facfe;
         }
-
         .checkbox-group {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
         }
-
         .checkbox-item {
             display: flex;
             align-items: center;
@@ -118,22 +102,18 @@
             cursor: pointer;
             transition: all 0.3s;
         }
-
         .checkbox-item:hover {
             background: #e9ecef;
         }
-
         .checkbox-item input[type="checkbox"] {
             width: auto;
             margin-right: 8px;
         }
-
         .checkbox-item.checked {
             background: #4facfe;
             color: white;
             border-color: #4facfe;
         }
-
         .generate-btn {
             background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
             color: white;
@@ -148,19 +128,16 @@
             display: block;
             margin: 0 auto;
         }
-
         .generate-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
         }
-
         .results {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
             margin-top: 30px;
         }
-
         .result-section {
             background: white;
             border-radius: 15px;
@@ -168,7 +145,6 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             border: 1px solid #e9ecef;
         }
-
         .result-section h2 {
             color: #333;
             margin-bottom: 20px;
@@ -177,11 +153,9 @@
             padding-bottom: 10px;
             border-bottom: 3px solid #4facfe;
         }
-
         .meal-section, .workout-section {
             margin-bottom: 25px;
         }
-
         .meal-section h3, .workout-section h3 {
             color: #555;
             margin-bottom: 15px;
@@ -189,17 +163,14 @@
             display: flex;
             align-items: center;
         }
-
         .meal-section h3::before {
             content: "🍽️";
             margin-right: 10px;
         }
-
         .workout-section h3::before {
             content: "💪";
             margin-right: 10px;
         }
-
         .meal-item, .exercise-item {
             background: #f8f9fa;
             padding: 15px;
@@ -207,19 +178,16 @@
             margin-bottom: 10px;
             border-left: 4px solid #4facfe;
         }
-
         .meal-item h4, .exercise-item h4 {
             color: #333;
             margin-bottom: 8px;
             font-size: 1.1em;
         }
-
         .meal-details, .exercise-details {
             color: #666;
             font-size: 0.9em;
             line-height: 1.4;
         }
-
         .nutrition-summary, .workout-summary {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -227,61 +195,58 @@
             border-radius: 10px;
             margin-top: 20px;
         }
-
         .nutrition-summary h4, .workout-summary h4 {
             margin-bottom: 10px;
             font-size: 1.2em;
         }
-
         .summary-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 15px;
         }
-
         .summary-item {
             text-align: center;
             background: rgba(255, 255, 255, 0.1);
             padding: 10px;
             border-radius: 8px;
         }
-
         .summary-item .value {
             font-size: 1.4em;
             font-weight: bold;
             display: block;
         }
-
         .summary-item .label {
             font-size: 0.9em;
             opacity: 0.9;
         }
-
         @media (max-width: 768px) {
             .results {
                 grid-template-columns: 1fr;
-            }
-            
+            }     
             .settings-grid {
                 grid-template-columns: 1fr;
-            }
-            
+            }          
             .header h1 {
                 font-size: 2em;
             }
         }
-
         .hidden {
             display: none;
         }
-
         .loading {
             text-align: center;
             padding: 50px;
             color: #666;
             font-size: 1.2em;
         }
-
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎯 智能饮食训练计划生成器</h1>
+            <p>基于个人需求，随机生成科学的一日饮食和训练方案</p>
+        </div>
         <div class="content">
             <div class="settings-panel">
                 <div class="settings-grid">
@@ -307,7 +272,6 @@
                             <input type="number" id="height" value="170" min="140" max="220">
                         </div>
                     </div>
-
                     <div class="setting-group">
                         <h3>目标设定</h3>
                         <div class="form-group">
@@ -334,7 +298,6 @@
                             <input type="number" id="target_calories" placeholder="留空自动计算">
                         </div>
                     </div>
-
                     <div class="setting-group">
                         <h3>饮食偏好</h3>
                         <div class="form-group">
@@ -359,7 +322,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="setting-group">
                         <h3>训练偏好</h3>
                         <div class="form-group">
@@ -389,10 +351,8 @@
                         </div>
                     </div>
                 </div>
-
                 <button class="generate-btn" onclick="generatePlan()">🎲 生成今日计划</button>
             </div>
-
             <div id="results" class="results hidden">
                 <div class="result-section">
                     <h2>🍽️ 饮食计划</h2>
@@ -402,7 +362,6 @@
                         <div class="summary-grid" id="nutrition-summary"></div>
                     </div>
                 </div>
-
                 <div class="result-section">
                     <h2>💪 训练计划</h2>
                     <div id="workout-plan"></div>
@@ -414,7 +373,6 @@
             </div>
         </div>
     </div>
-
     <script>
         // 食物数据库
         const foodDatabase = {
@@ -450,7 +408,6 @@
                 { name: "胡萝卜条", calories: 25, protein: 1, carbs: 6, fat: 0, tags: ["vegetarian", "low_carb"] }
             ]
         };
-
         // 训练动作数据库
         const exerciseDatabase = {
             strength: [
@@ -482,35 +439,30 @@
                 { name: "脊椎扭转", duration: 6, sets: 1, reps: "6分钟", calories: 12, equipment: "无器械", muscle: ["背部"] }
             ]
         };
-
         // 初始化复选框事件
         document.addEventListener('DOMContentLoaded', function() {
             const checkboxGroups = document.querySelectorAll('.checkbox-group');
             checkboxGroups.forEach(group => {
                 const checkboxItems = group.querySelectorAll('.checkbox-item');
                 checkboxItems.forEach(item => {
-                    const checkbox = item.querySelector('input[type="checkbox"]');
-                    
+                    const checkbox = item.querySelector('input[type="checkbox"]');                 
                     item.addEventListener('click', function(e) {
                         if (e.target.type !== 'checkbox') {
                             checkbox.checked = !checkbox.checked;
                         }
-                        
-                        if (checkbox.checked) {
+                                                if (checkbox.checked) {
                             item.classList.add('checked');
                         } else {
                             item.classList.remove('checked');
                         }
                     });
-                    
-                    // 初始状态
+                                        // 初始状态
                     if (checkbox.checked) {
                         item.classList.add('checked');
                     }
                 });
             });
         });
-
         // 计算基础代谢率
         function calculateBMR(gender, age, weight, height) {
             if (gender === 'male') {
@@ -519,7 +471,6 @@
                 return 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
             }
         }
-
         // 计算每日消耗卡路里
         function calculateTDEE(bmr, activity) {
             const multipliers = {
@@ -531,7 +482,6 @@
             };
             return bmr * multipliers[activity];
         }
-
         // 根据目标调整卡路里
         function adjustCaloriesForGoal(tdee, goal) {
             switch (goal) {
@@ -547,7 +497,6 @@
                     return tdee;
             }
         }
-
         // 过滤食物
         function filterFoods(foods, dietTypes) {
             if (dietTypes.length === 0) return foods;
@@ -555,7 +504,6 @@
                 dietTypes.some(type => food.tags.includes(type))
             );
         }
-
         // 过滤训练动作
         function filterExercises(exercises, workoutTypes) {
             if (workoutTypes.length === 0) return exercises;
@@ -567,13 +515,11 @@
             });
             return filtered;
         }
-
         // 随机选择元素
         function getRandomItems(array, count) {
             const shuffled = [...array].sort(() => 0.5 - Math.random());
             return shuffled.slice(0, count);
         }
-
         // 生成饮食计划
         function generateMealPlan(targetCalories, dietTypes) {
             const calorieDistribution = {
@@ -582,25 +528,20 @@
                 dinner: 0.30,
                 snacks: 0.10
             };
-
             const mealPlan = {};
             let totalCalories = 0;
             let totalProtein = 0;
             let totalCarbs = 0;
             let totalFat = 0;
-
             Object.keys(calorieDistribution).forEach(mealType => {
                 const targetMealCalories = targetCalories * calorieDistribution[mealType];
-                const availableFoods = filterFoods(foodDatabase[mealType], dietTypes);
-                
+                const availableFoods = filterFoods(foodDatabase[mealType], dietTypes);               
                 if (availableFoods.length > 0) {
                     let selectedFoods = [];
-                    let mealCalories = 0;
-                    
+                    let mealCalories = 0;                    
                     // 为零食选择1-2个，其他餐选择1个主要食物
                     const numItems = mealType === 'snacks' ? Math.random() > 0.5 ? 2 : 1 : 1;
-                    const foods = getRandomItems(availableFoods, numItems);
-                    
+                    const foods = getRandomItems(availableFoods, numItems);                    
                     foods.forEach(food => {
                         selectedFoods.push({...food});
                         mealCalories += food.calories;
@@ -608,15 +549,13 @@
                         totalProtein += food.protein;
                         totalCarbs += food.carbs;
                         totalFat += food.fat;
-                    });
-                    
+                    });                    
                     mealPlan[mealType] = {
                         foods: selectedFoods,
                         calories: mealCalories
                     };
                 }
             });
-
             return {
                 meals: mealPlan,
                 nutrition: {
@@ -627,36 +566,28 @@
                 }
             };
         }
-
         // 生成训练计划
         function generateWorkoutPlan(workoutTypes, duration) {
-            const availableExercises = filterExercises([], workoutTypes);
-            
+            const availableExercises = filterExercises([], workoutTypes);           
             if (availableExercises.length === 0) {
                 return { exercises: [], summary: { duration: 0, calories: 0, exercises: 0 } };
             }
-
             let selectedExercises = [];
             let totalDuration = 0;
             let totalCalories = 0;
-
             // 根据时长选择练习
             while (totalDuration < duration && availableExercises.length > 0) {
                 const remainingTime = duration - totalDuration;
-                const suitableExercises = availableExercises.filter(ex => ex.duration <= remainingTime);
-                
-                if (suitableExercises.length === 0) break;
-                
+                const suitableExercises = availableExercises.filter(ex => ex.duration <= remainingTime);                
+                if (suitableExercises.length === 0) break;                
                 const exercise = suitableExercises[Math.floor(Math.random() * suitableExercises.length)];
                 selectedExercises.push({...exercise});
                 totalDuration += exercise.duration;
-                totalCalories += exercise.calories;
-                
+                totalCalories += exercise.calories;                
                 // 移除已选择的练习，避免重复
                 const index = availableExercises.indexOf(exercise);
                 availableExercises.splice(index, 1);
             }
-
             return {
                 exercises: selectedExercises,
                 summary: {
@@ -666,7 +597,6 @@
                 }
             };
         }
-
         // 生成计划主函数
         function generatePlan() {
             // 获取用户输入
@@ -678,19 +608,16 @@
             const activity = document.getElementById('activity').value;
             const workoutDuration = parseInt(document.getElementById('workout_duration').value);
             const targetCaloriesInput = document.getElementById('target_calories').value;
-
             // 获取饮食偏好
             const dietTypes = [];
             document.querySelectorAll('#diet-types input[type="checkbox"]:checked').forEach(checkbox => {
                 dietTypes.push(checkbox.id);
             });
-
             // 获取训练偏好
             const workoutTypes = [];
             document.querySelectorAll('#workout-types input[type="checkbox"]:checked').forEach(checkbox => {
                 workoutTypes.push(checkbox.id);
             });
-
             // 计算目标卡路里
             let targetCalories;
             if (targetCaloriesInput && targetCaloriesInput.trim() !== '') {
@@ -700,17 +627,13 @@
                 const tdee = calculateTDEE(bmr, activity);
                 targetCalories = adjustCaloriesForGoal(tdee, goal);
             }
-
             // 生成饮食计划
             const mealPlan = generateMealPlan(targetCalories, dietTypes);
-            
-            // 生成训练计划
+                      // 生成训练计划
             const workoutPlan = generateWorkoutPlan(workoutTypes, workoutDuration);
-
             // 显示结果
             displayResults(mealPlan, workoutPlan);
         }
-
         // 显示结果函数
         function displayResults(mealPlan, workoutPlan) {
             const resultsDiv = document.getElementById('results');
@@ -718,7 +641,6 @@
             const nutritionSummaryDiv = document.getElementById('nutrition-summary');
             const workoutPlanDiv = document.getElementById('workout-plan');
             const workoutSummaryDiv = document.getElementById('workout-summary');
-
             // 显示饮食计划
             mealPlanDiv.innerHTML = '';
             const mealNames = {
@@ -727,12 +649,10 @@
                 dinner: '晚餐',
                 snacks: '零食'
             };
-
             Object.keys(mealPlan.meals).forEach(mealType => {
                 const meal = mealPlan.meals[mealType];
                 const mealSection = document.createElement('div');
-                mealSection.className = 'meal-section';
-                
+                mealSection.className = 'meal-section';               
                 mealSection.innerHTML = `
                     <h3>${mealNames[mealType]}</h3>
                     ${meal.foods.map(food => `
@@ -745,10 +665,8 @@
                         </div>
                     `).join('')}
                 `;
-                
-                mealPlanDiv.appendChild(mealSection);
+                                mealPlanDiv.appendChild(mealSection);
             });
-
             // 显示营养总结
             nutritionSummaryDiv.innerHTML = `
                 <div class="summary-item">
@@ -768,14 +686,12 @@
                     <span class="label">脂肪</span>
                 </div>
             `;
-
             // 显示训练计划
             workoutPlanDiv.innerHTML = '';
             if (workoutPlan.exercises.length > 0) {
                 workoutPlan.exercises.forEach(exercise => {
                     const exerciseSection = document.createElement('div');
-                    exerciseSection.className = 'workout-section';
-                    
+                    exerciseSection.className = 'workout-section';                  
                     exerciseSection.innerHTML = `
                         <h3>${exercise.name}</h3>
                         <div class="exercise-item">
@@ -788,14 +704,12 @@
                                 目标肌肉: ${exercise.muscle.join(', ')}
                             </div>
                         </div>
-                    `;
-                    
+                    `;                    
                     workoutPlanDiv.appendChild(exerciseSection);
                 });
             } else {
                 workoutPlanDiv.innerHTML = '<p style="text-align: center; color: #666;">请选择至少一种训练类型</p>';
             }
-
             // 显示训练总结
             workoutSummaryDiv.innerHTML = `
                 <div class="summary-item">
@@ -811,7 +725,6 @@
                     <span class="label">训练动作</span>
                 </div>
             `;
-
             // 显示结果区域
             resultsDiv.classList.remove('hidden');
             resultsDiv.scrollIntoView({ behavior: 'smooth' });
