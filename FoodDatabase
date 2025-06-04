@@ -1,0 +1,10 @@
+breakfast: [
+  {
+    name: "新食物名称",
+    calories: 卡路里数值,
+    protein: 蛋白质含量,
+    carbs: 碳水化合物含量,
+    fat: 脂肪含量,
+    tags: ["适用标签"]
+  }
+]
