@@ -1,3 +1,18 @@
+## 🛠️ 技术实现
+
+### 前端技术
+- **HTML5**: 语义化结构
+- **CSS3**: 现代化样式，Grid/Flexbox布局
+- **JavaScript**: 原生JS，无外部依赖
+
+### 完整代码
+
+点击展开查看完整的HTML代码：
+
+<details>
+<summary>📄 index.html (点击展开)</summary>
+
+```html
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -10,12 +25,14 @@
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
         }
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -24,24 +41,29 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
+
         .header {
             background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
             color: white;
             padding: 30px;
             text-align: center;
         }
+
         .header h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
         }
+
         .header p {
             font-size: 1.1em;
             opacity: 0.9;
         }
+
         .content {
             padding: 30px;
         }
+
         .settings-panel {
             background: #f8f9fa;
             border-radius: 15px;
@@ -49,32 +71,38 @@
             margin-bottom: 30px;
             border: 2px solid #e9ecef;
         }
+
         .settings-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin-bottom: 20px;
         }
+
         .setting-group {
             background: white;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
+
         .setting-group h3 {
             color: #333;
             margin-bottom: 15px;
             font-size: 1.1em;
         }
+
         .form-group {
             margin-bottom: 15px;
         }
+
         label {
             display: block;
             margin-bottom: 5px;
             font-weight: 600;
             color: #555;
         }
+
         input, select {
             width: 100%;
             padding: 10px;
@@ -83,15 +111,18 @@
             font-size: 14px;
             transition: border-color 0.3s;
         }
+
         input:focus, select:focus {
             outline: none;
             border-color: #4facfe;
         }
+
         .checkbox-group {
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
         }
+
         .checkbox-item {
             display: flex;
             align-items: center;
@@ -102,18 +133,22 @@
             cursor: pointer;
             transition: all 0.3s;
         }
+
         .checkbox-item:hover {
             background: #e9ecef;
         }
+
         .checkbox-item input[type="checkbox"] {
             width: auto;
             margin-right: 8px;
         }
+
         .checkbox-item.checked {
             background: #4facfe;
             color: white;
             border-color: #4facfe;
         }
+
         .generate-btn {
             background: linear-gradient(135deg, #ff6b6b 0%, #ee5a24 100%);
             color: white;
@@ -128,16 +163,19 @@
             display: block;
             margin: 0 auto;
         }
+
         .generate-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
         }
+
         .results {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 30px;
             margin-top: 30px;
         }
+
         .result-section {
             background: white;
             border-radius: 15px;
@@ -145,6 +183,7 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
             border: 1px solid #e9ecef;
         }
+
         .result-section h2 {
             color: #333;
             margin-bottom: 20px;
@@ -153,9 +192,11 @@
             padding-bottom: 10px;
             border-bottom: 3px solid #4facfe;
         }
+
         .meal-section, .workout-section {
             margin-bottom: 25px;
         }
+
         .meal-section h3, .workout-section h3 {
             color: #555;
             margin-bottom: 15px;
@@ -163,14 +204,17 @@
             display: flex;
             align-items: center;
         }
+
         .meal-section h3::before {
             content: "🍽️";
             margin-right: 10px;
         }
+
         .workout-section h3::before {
             content: "💪";
             margin-right: 10px;
         }
+
         .meal-item, .exercise-item {
             background: #f8f9fa;
             padding: 15px;
@@ -178,16 +222,19 @@
             margin-bottom: 10px;
             border-left: 4px solid #4facfe;
         }
+
         .meal-item h4, .exercise-item h4 {
             color: #333;
             margin-bottom: 8px;
             font-size: 1.1em;
         }
+
         .meal-details, .exercise-details {
             color: #666;
             font-size: 0.9em;
             line-height: 1.4;
         }
+
         .nutrition-summary, .workout-summary {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -195,44 +242,54 @@
             border-radius: 10px;
             margin-top: 20px;
         }
+
         .nutrition-summary h4, .workout-summary h4 {
             margin-bottom: 10px;
             font-size: 1.2em;
         }
+
         .summary-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 15px;
         }
+
         .summary-item {
             text-align: center;
             background: rgba(255, 255, 255, 0.1);
             padding: 10px;
             border-radius: 8px;
         }
+
         .summary-item .value {
             font-size: 1.4em;
             font-weight: bold;
             display: block;
         }
+
         .summary-item .label {
             font-size: 0.9em;
             opacity: 0.9;
         }
+
         @media (max-width: 768px) {
             .results {
                 grid-template-columns: 1fr;
-            }     
+            }
+            
             .settings-grid {
                 grid-template-columns: 1fr;
-            }          
+            }
+            
             .header h1 {
                 font-size: 2em;
             }
         }
+
         .hidden {
             display: none;
         }
+
         .loading {
             text-align: center;
             padding: 50px;
@@ -247,6 +304,7 @@
             <h1>🎯 智能饮食训练计划生成器</h1>
             <p>基于个人需求，随机生成科学的一日饮食和训练方案</p>
         </div>
+
         <div class="content">
             <div class="settings-panel">
                 <div class="settings-grid">
@@ -272,6 +330,7 @@
                             <input type="number" id="height" value="170" min="140" max="220">
                         </div>
                     </div>
+
                     <div class="setting-group">
                         <h3>目标设定</h3>
                         <div class="form-group">
@@ -298,6 +357,7 @@
                             <input type="number" id="target_calories" placeholder="留空自动计算">
                         </div>
                     </div>
+
                     <div class="setting-group">
                         <h3>饮食偏好</h3>
                         <div class="form-group">
@@ -322,6 +382,7 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="setting-group">
                         <h3>训练偏好</h3>
                         <div class="form-group">
@@ -351,8 +412,10 @@
                         </div>
                     </div>
                 </div>
+
                 <button class="generate-btn" onclick="generatePlan()">🎲 生成今日计划</button>
             </div>
+
             <div id="results" class="results hidden">
                 <div class="result-section">
                     <h2>🍽️ 饮食计划</h2>
@@ -362,6 +425,7 @@
                         <div class="summary-grid" id="nutrition-summary"></div>
                     </div>
                 </div>
+
                 <div class="result-section">
                     <h2>💪 训练计划</h2>
                     <div id="workout-plan"></div>
@@ -373,6 +437,7 @@
             </div>
         </div>
     </div>
+
     <script>
         // 食物数据库
         const foodDatabase = {
@@ -408,6 +473,7 @@
                 { name: "胡萝卜条", calories: 25, protein: 1, carbs: 6, fat: 0, tags: ["vegetarian", "low_carb"] }
             ]
         };
+
         // 训练动作数据库
         const exerciseDatabase = {
             strength: [
@@ -439,30 +505,35 @@
                 { name: "脊椎扭转", duration: 6, sets: 1, reps: "6分钟", calories: 12, equipment: "无器械", muscle: ["背部"] }
             ]
         };
+
         // 初始化复选框事件
         document.addEventListener('DOMContentLoaded', function() {
             const checkboxGroups = document.querySelectorAll('.checkbox-group');
             checkboxGroups.forEach(group => {
                 const checkboxItems = group.querySelectorAll('.checkbox-item');
                 checkboxItems.forEach(item => {
-                    const checkbox = item.querySelector('input[type="checkbox"]');                 
+                    const checkbox = item.querySelector('input[type="checkbox"]');
+                    
                     item.addEventListener('click', function(e) {
                         if (e.target.type !== 'checkbox') {
                             checkbox.checked = !checkbox.checked;
                         }
-                                                if (checkbox.checked) {
+                        
+                        if (checkbox.checked) {
                             item.classList.add('checked');
                         } else {
                             item.classList.remove('checked');
                         }
                     });
-                                        // 初始状态
+                    
+                    // 初始状态
                     if (checkbox.checked) {
                         item.classList.add('checked');
                     }
                 });
             });
         });
+
         // 计算基础代谢率
         function calculateBMR(gender, age, weight, height) {
             if (gender === 'male') {
@@ -471,6 +542,7 @@
                 return 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
             }
         }
+
         // 计算每日消耗卡路里
         function calculateTDEE(bmr, activity) {
             const multipliers = {
@@ -482,21 +554,23 @@
             };
             return bmr * multipliers[activity];
         }
+
         // 根据目标调整卡路里
         function adjustCaloriesForGoal(tdee, goal) {
             switch (goal) {
                 case 'lose_weight':
-                    return tdee - 500; // 减脂：减少500卡路里
+                    return tdee - 500;
                 case 'gain_muscle':
-                    return tdee + 300; // 增肌：增加300卡路里
+                    return tdee + 300;
                 case 'maintain':
-                    return tdee; // 保持
+                    return tdee;
                 case 'endurance':
-                    return tdee + 200; // 耐力：增加200卡路里
+                    return tdee + 200;
                 default:
                     return tdee;
             }
         }
+
         // 过滤食物
         function filterFoods(foods, dietTypes) {
             if (dietTypes.length === 0) return foods;
@@ -504,6 +578,7 @@
                 dietTypes.some(type => food.tags.includes(type))
             );
         }
+
         // 过滤训练动作
         function filterExercises(exercises, workoutTypes) {
             if (workoutTypes.length === 0) return exercises;
@@ -515,11 +590,13 @@
             });
             return filtered;
         }
+
         // 随机选择元素
         function getRandomItems(array, count) {
             const shuffled = [...array].sort(() => 0.5 - Math.random());
             return shuffled.slice(0, count);
         }
+
         // 生成饮食计划
         function generateMealPlan(targetCalories, dietTypes) {
             const calorieDistribution = {
@@ -528,20 +605,24 @@
                 dinner: 0.30,
                 snacks: 0.10
             };
+
             const mealPlan = {};
             let totalCalories = 0;
             let totalProtein = 0;
             let totalCarbs = 0;
             let totalFat = 0;
+
             Object.keys(calorieDistribution).forEach(mealType => {
                 const targetMealCalories = targetCalories * calorieDistribution[mealType];
-                const availableFoods = filterFoods(foodDatabase[mealType], dietTypes);               
+                const availableFoods = filterFoods(foodDatabase[mealType], dietTypes);
+                
                 if (availableFoods.length > 0) {
                     let selectedFoods = [];
-                    let mealCalories = 0;                    
-                    // 为零食选择1-2个，其他餐选择1个主要食物
+                    let mealCalories = 0;
+                    
                     const numItems = mealType === 'snacks' ? Math.random() > 0.5 ? 2 : 1 : 1;
-                    const foods = getRandomItems(availableFoods, numItems);                    
+                    const foods = getRandomItems(availableFoods, numItems);
+                    
                     foods.forEach(food => {
                         selectedFoods.push({...food});
                         mealCalories += food.calories;
@@ -549,184 +630,294 @@
                         totalProtein += food.protein;
                         totalCarbs += food.carbs;
                         totalFat += food.fat;
-                    });                    
+                    });
+                    
                     mealPlan[mealType] = {
                         foods: selectedFoods,
                         calories: mealCalories
                     };
                 }
-            });
-            return {
-                meals: mealPlan,
-                nutrition: {
-                    calories: Math.round(totalCalories),
-                    protein: Math.round(totalProtein),
-                    carbs: Math.round(totalCarbs),
-                    fat: Math.round(totalFat)
-                }
-            };
-        }
-        // 生成训练计划
-        function generateWorkoutPlan(workoutTypes, duration) {
-            const availableExercises = filterExercises([], workoutTypes);           
-            if (availableExercises.length === 0) {
-                return { exercises: [], summary: { duration: 0, calories: 0, exercises: 0 } };
-            }
-            let selectedExercises = [];
-            let totalDuration = 0;
-            let totalCalories = 0;
-            // 根据时长选择练习
-            while (totalDuration < duration && availableExercises.length > 0) {
-                const remainingTime = duration - totalDuration;
-                const suitableExercises = availableExercises.filter(ex => ex.duration <= remainingTime);                
-                if (suitableExercises.length === 0) break;                
-                const exercise = suitableExercises[Math.floor(Math.random() * suitableExercises.length)];
-                selectedExercises.push({...exercise});
-                totalDuration += exercise.duration;
-                totalCalories += exercise.calories;                
-                // 移除已选择的练习，避免重复
-                const index = availableExercises.indexOf(exercise);
-                availableExercises.splice(index, 1);
-            }
-            return {
-                exercises: selectedExercises,
-                summary: {
-                    duration: totalDuration,
-                    calories: Math.round(totalCalories),
-                    exercises: selectedExercises.length
-                }
-            };
-        }
-        // 生成计划主函数
-        function generatePlan() {
-            // 获取用户输入
-            const gender = document.getElementById('gender').value;
-            const age = parseInt(document.getElementById('age').value);
-            const weight = parseInt(document.getElementById('weight').value);
-            const height = parseInt(document.getElementById('height').value);
-            const goal = document.getElementById('goal').value;
-            const activity = document.getElementById('activity').value;
-            const workoutDuration = parseInt(document.getElementById('workout_duration').value);
-            const targetCaloriesInput = document.getElementById('target_calories').value;
-            // 获取饮食偏好
-            const dietTypes = [];
-            document.querySelectorAll('#diet-types input[type="checkbox"]:checked').forEach(checkbox => {
-                dietTypes.push(checkbox.id);
-            });
-            // 获取训练偏好
-            const workoutTypes = [];
-            document.querySelectorAll('#workout-types input[type="checkbox"]:checked').forEach(checkbox => {
-                workoutTypes.push(checkbox.id);
-            });
-            // 计算目标卡路里
-            let targetCalories;
-            if (targetCaloriesInput && targetCaloriesInput.trim() !== '') {
-                targetCalories = parseInt(targetCaloriesInput);
-            } else {
-                const bmr = calculateBMR(gender, age, weight, height);
-                const tdee = calculateTDEE(bmr, activity);
-                targetCalories = adjustCaloriesForGoal(tdee, goal);
-            }
-            // 生成饮食计划
-            const mealPlan = generateMealPlan(targetCalories, dietTypes);
-                      // 生成训练计划
-            const workoutPlan = generateWorkoutPlan(workoutTypes, workoutDuration);
-            // 显示结果
-            displayResults(mealPlan, workoutPlan);
-        }
-        // 显示结果函数
-        function displayResults(mealPlan, workoutPlan) {
-            const resultsDiv = document.getElementById('results');
-            const mealPlanDiv = document.getElementById('meal-plan');
-            const nutritionSummaryDiv = document.getElementById('nutrition-summary');
-            const workoutPlanDiv = document.getElementById('workout-plan');
-            const workoutSummaryDiv = document.getElementById('workout-summary');
-            // 显示饮食计划
-            mealPlanDiv.innerHTML = '';
-            const mealNames = {
-                breakfast: '早餐',
-                lunch: '午餐', 
-                dinner: '晚餐',
-                snacks: '零食'
-            };
-            Object.keys(mealPlan.meals).forEach(mealType => {
-                const meal = mealPlan.meals[mealType];
-                const mealSection = document.createElement('div');
-                mealSection.className = 'meal-section';               
-                mealSection.innerHTML = `
-                    <h3>${mealNames[mealType]}</h3>
-                    ${meal.foods.map(food => `
-                        <div class="meal-item">
-                            <h4>${food.name}</h4>
-                            <div class="meal-details">
-                                卡路里: ${food.calories} | 蛋白质: ${food.protein}g | 
-                                碳水: ${food.carbs}g | 脂肪: ${food.fat}g
-                            </div>
-                        </div>
-                    `).join('')}
-                `;
-                                mealPlanDiv.appendChild(mealSection);
-            });
-            // 显示营养总结
-            nutritionSummaryDiv.innerHTML = `
-                <div class="summary-item">
-                    <span class="value">${mealPlan.nutrition.calories}</span>
-                    <span class="label">卡路里</span>
-                </div>
-                <div class="summary-item">
-                    <span class="value">${mealPlan.nutrition.protein}g</span>
-                    <span class="label">蛋白质</span>
-                </div>
-                <div class="summary-item">
-                    <span class="value">${mealPlan.nutrition.carbs}g</span>
-                    <span class="label">碳水化合物</span>
-                </div>
-                <div class="summary-item">
-                    <span class="value">${mealPlan.nutrition.fat}g</span>
-                    <span class="label">脂肪</span>
-                </div>
-            `;
-            // 显示训练计划
-            workoutPlanDiv.innerHTML = '';
-            if (workoutPlan.exercises.length > 0) {
-                workoutPlan.exercises.forEach(exercise => {
-                    const exerciseSection = document.createElement('div');
-                    exerciseSection.className = 'workout-section';                  
-                    exerciseSection.innerHTML = `
-                        <h3>${exercise.name}</h3>
-                        <div class="exercise-item">
-                            <h4>训练详情</h4>
-                            <div class="exercise-details">
-                                ${exercise.sets} 组 × ${exercise.reps} | 
-                                时长: ${exercise.duration}分钟 | 
-                                消耗: ${exercise.calories}卡路里<br>
-                                器械: ${exercise.equipment} | 
-                                目标肌肉: ${exercise.muscle.join(', ')}
-                            </div>
-                        </div>
-                    `;                    
-                    workoutPlanDiv.appendChild(exerciseSection);
-                });
-            } else {
-                workoutPlanDiv.innerHTML = '<p style="text-align: center; color: #666;">请选择至少一种训练类型</p>';
-            }
-            // 显示训练总结
-            workoutSummaryDiv.innerHTML = `
-                <div class="summary-item">
-                    <span class="value">${workoutPlan.summary.duration}</span>
-                    <span class="label">分钟</span>
-                </div>
-                <div class="summary-item">
-                    <span class="value">${workoutPlan.summary.calories}</span>
-                    <span class="label">消耗卡路里</span>
-                </div>
-                <div class="summary-item">
-                    <span class="value">${workoutPlan.summary.exercises}</span>
-                    <span class="label">训练动作</span>
-                </div>
-            `;
-            // 显示结果区域
-            resultsDiv.classList.remove('hidden');
-            resultsDiv.scrollIntoView({ behavior: 'smooth' });
-        }
-    </script>
+            # 🎯 随机饮食训练计划生成器
+
+一个功能完整的Web应用，基于个人需求智能生成科学的一日饮食和训练方案。
+
+## 🌟 在线预览
+
+[点击查看演示](https://your-username.github.io/fitness-generator) | [下载完整代码](#完整代码)
+
+## ✨ 功能特点
+
+### 🎯 智能个性化
+- **基础信息分析**: 根据性别、年龄、体重、身高计算基础代谢率
+- **目标导向**: 支持减脂、增肌、保持、提升耐力等不同目标
+- **活动水平评估**: 从久坐到极度活动的5个级别
+
+### 🍽️ 饮食计划
+- **丰富食物库**: 包含早餐、午餐、晚餐、零食等各类食物
+- **营养均衡**: 自动计算卡路里、蛋白质、碳水化合物、脂肪
+- **饮食偏好**: 支持均衡饮食、素食、低碳水、高蛋白等选项
+- **科学分配**: 按25%早餐、35%午餐、30%晚餐、10%零食的比例分配
+
+### 💪 训练计划
+- **多样化训练**: 力量训练、有氧运动、HIIT、柔韧性训练
+- **时长控制**: 可设定15-120分钟的训练时长
+- **详细指导**: 包含组数、次数、消耗卡路里、所需器械
+- **肌肉群标注**: 清楚标明每个动作锻炼的肌肉群
+
+### 🎨 用户体验
+- **现代化设计**: 渐变背景、圆角卡片、阴影效果
+- **响应式布局**: 完美适配手机、平板、电脑
+- **交互动画**: 按钮悬停效果、焦点状态
+- **直观展示**: 图标配合文字，营养和训练数据可视化
+
+## 🚀 快速开始
+
+### 方法一：直接下载使用
+1. 复制下方的[完整代码](#完整代码)到 `index.html` 文件
+2. 用浏览器打开即可使用
+
+### 方法二：一键部署到GitHub Pages
+```bash
+# 1. Fork 或创建新仓库
+# 2. 创建 index.html 文件，粘贴完整代码
+# 3. 在仓库设置中启用 GitHub Pages
+# 4. 访问 https://your-username.github.io/your-repo-name
+```
+
+### 方法三：其他部署平台
+- **Netlify**: 拖拽 HTML 文件到 [netlify.com](https://netlify.com)
+- **Vercel**: 导入 GitHub 仓库到 [vercel.com](https://vercel.com)
+- **Firebase**: 使用 `firebase init hosting` 部署
+
+### 核心算法
+- **BMR计算**: 使用Mifflin-St Jeor公式
+- **TDEE计算**: 基于活动水平的总消耗
+- **目标调整**: 根据健身目标调整卡路里需求
+- **智能筛选**: 根据偏好过滤食物和训练动作
+- **随机生成**: 在满足条件的基础上随机组合
+
+### 数据库设计
+```javascript
+// 食物数据结构
+{
+  name: "食物名称",
+  calories: 卡路里,
+  protein: 蛋白质(g),
+  carbs: 碳水化合物(g),
+  fat: 脂肪(g),
+  tags: ["标签1", "标签2"]
+}
+
+// 训练动作数据结构
+{
+  name: "动作名称",
+  duration: 时长(分钟),
+  sets: 组数,
+  reps: "次数范围",
+  calories: 消耗卡路里,
+  equipment: "所需器械",
+  muscle: ["目标肌肉群"]
+}
+```
+
+## 🚀 部署指南
+
+### 1. 准备文件
+将以下代码保存为 `index.html`:
+
+```html
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>随机饮食训练计划生成器</title>
+    <!-- 完整CSS和JavaScript代码在这里 -->
+</head>
+<body>
+    <!-- 完整HTML结构在这里 -->
+</body>
+</html>
+```
+
+### 2. 本地测试
+- 直接在浏览器中打开 `index.html` 文件
+- 确保所有功能正常工作
+
+### 3. 免费部署选项
+
+#### GitHub Pages (推荐)
+```bash
+# 1. 创建GitHub仓库
+# 2. 上传index.html文件
+# 3. 在仓库设置中启用GitHub Pages
+# 4. 选择main分支作为源
+# 访问: https://用户名.github.io/仓库名
+```
+
+#### Netlify
+```bash
+# 1. 注册Netlify账号
+# 2. 拖拽index.html到部署区域
+# 3. 自动生成网址
+# 支持自定义域名
+```
+
+#### Vercel
+```bash
+# 1. 安装Vercel CLI: npm i -g vercel
+# 2. 在项目目录运行: vercel
+# 3. 按提示完成部署
+```
+
+#### Firebase Hosting
+```bash
+# 1. 安装Firebase CLI: npm i -g firebase-tools
+# 2. 初始化项目: firebase init hosting
+# 3. 部署: firebase deploy
+```
+
+### 4. 自定义域名
+大多数免费托管服务都支持绑定自定义域名：
+- 在域名服务商设置CNAME记录
+- 在托管平台添加自定义域名
+- 等待DNS解析生效（通常1-24小时）
+
+## 📱 使用说明
+
+### 基本设置
+1. **填写基本信息**: 性别、年龄、体重、身高
+2. **选择目标**: 减脂、增肌、保持或提升耐力
+3. **设定活动水平**: 从久坐到极度活动
+4. **可选目标卡路里**: 留空则自动计算
+
+### 饮食偏好
+- **均衡饮食**: 包含各类营养的传统饮食
+- **素食**: 不含肉类的植物性饮食
+- **低碳水**: 减少碳水化合物摄入
+- **高蛋白**: 增加蛋白质比例
+
+### 训练设置
+- **力量训练**: 器械和自重训练动作
+- **有氧运动**: 跑步、游泳、单车等
+- **HIIT**: 高强度间歇训练
+- **柔韧性**: 拉伸和瑜伽动作
+
+### 生成计划
+点击"生成今日计划"按钮，系统将：
+1. 计算个人代谢需求
+2. 根据偏好筛选食物和动作
+3. 智能组合生成平衡方案
+4. 展示详细营养和训练数据
+
+## 🔧 自定义扩展
+
+### 添加新食物
+在JavaScript的`foodDatabase`对象中添加：
+```javascript
+breakfast: [
+  {
+    name: "新食物名称",
+    calories: 卡路里数值,
+    protein: 蛋白质含量,
+    carbs: 碳水化合物含量,
+    fat: 脂肪含量,
+    tags: ["适用标签"]
+  }
+]
+```
+
+### 添加新训练动作
+在`exerciseDatabase`对象中添加：
+```javascript
+strength: [
+  {
+    name: "新动作名称",
+    duration: 时长,
+    sets: 组数,
+    reps: "次数说明",
+    calories: 消耗卡路里,
+    equipment: "所需器械",
+    muscle: ["锻炼肌肉群"]
+  }
+]
+```
+
+### 修改样式
+在CSS部分调整：
+- 颜色方案：修改渐变色和主题色
+- 布局：调整Grid和Flexbox参数
+- 动画：添加更多交互效果
+
+## 📊 数据说明
+
+### 营养计算公式
+- **BMR (男)**: 88.362 + (13.397 × 体重) + (4.799 × 身高) - (5.677 × 年龄)
+- **BMR (女)**: 447.593 + (9.247 × 体重) + (3.098 × 身高) - (4.330 × 年龄)
+- **TDEE**: BMR × 活动系数 (1.2-1.9)
+
+### 目标调整
+- **减脂**: TDEE - 500卡路里
+- **增肌**: TDEE + 300卡路里
+- **保持**: TDEE
+- **耐力**: TDEE + 200卡路里
+
+### 餐次分配
+- **早餐**: 25%的日总卡路里
+- **午餐**: 35%的日总卡路里
+- **晚餐**: 30%的日总卡路里
+- **零食**: 10%的日总卡路里
+
+## 🎯 特色亮点
+
+### 1. 科学性
+- 基于运动营养学原理
+- 使用国际认可的代谢计算公式
+- 营养配比符合健康标准
+
+### 2. 实用性
+- 一键生成完整计划
+- 考虑实际执行难度
+- 提供详细指导信息
+
+### 3. 个性化
+- 多维度用户画像
+- 灵活的偏好设置
+- 智能化内容推荐
+
+### 4. 用户体验
+- 现代化界面设计
+- 流畅的交互体验
+- 完善的移动端支持
+
+## 🔮 未来优化
+
+### 功能增强
+- [ ] 添加食物过敏原标注
+- [ ] 增加更多国际化食物
+- [ ] 支持多日计划生成
+- [ ] 添加进度跟踪功能
+
+### 技术升级
+- [ ] 使用localStorage保存偏好
+- [ ] 添加PWA支持
+- [ ] 集成营养数据API
+- [ ] 实现用户登录系统
+
+### 数据完善
+- [ ] 扩展食物数据库到500+
+- [ ] 添加更多训练动作
+- [ ] 细化营养成分标注
+- [ ] 增加运动难度分级
+
+## 📄 许可证
+
+MIT License - 自由使用、修改和分发
+
+## 🤝 贡献
+
+欢迎提交Issue和Pull Request来改进这个项目！
+
+---
+
+**立即部署，开始您的健康生活之旅！** 🏃‍♀️💪
