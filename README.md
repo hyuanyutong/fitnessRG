@@ -86,22 +86,26 @@ html<!DOCTYPE html>
 
 3. 免费部署选项
 GitHub Pages (推荐)
-bash# 1. 创建GitHub仓库
+bash
+# 1. 创建GitHub仓库
 # 2. 上传index.html文件
 # 3. 在仓库设置中启用GitHub Pages
 # 4. 选择main分支作为源
 # 访问: https://用户名.github.io/仓库名
 Netlify
-bash# 1. 注册Netlify账号
+bash
+# 1. 注册Netlify账号
 # 2. 拖拽index.html到部署区域
 # 3. 自动生成网址
 # 支持自定义域名
 Vercel
-bash# 1. 安装Vercel CLI: npm i -g vercel
+bash
+# 1. 安装Vercel CLI: npm i -g vercel
 # 2. 在项目目录运行: vercel
 # 3. 按提示完成部署
 Firebase Hosting
-bash# 1. 安装Firebase CLI: npm i -g firebase-tools
+bash
+# 1. 安装Firebase CLI: npm i -g firebase-tools
 # 2. 初始化项目: firebase init hosting
 # 3. 部署: firebase deploy
 4. 自定义域名
