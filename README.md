@@ -544,13 +544,13 @@
         function adjustCaloriesForGoal(tdee, goal) {
             switch (goal) {
                 case 'lose_weight':
-                    return tdee - 500;
+                    return tdee - 500; // 减脂：减少500卡路里
                 case 'gain_muscle':
-                    return tdee + 300;
+                    return tdee + 300; // 增肌：增加300卡路里
                 case 'maintain':
-                    return tdee;
+                    return tdee; // 保持
                 case 'endurance':
-                    return tdee + 200;
+                    return tdee + 200; // 耐力：增加200卡路里
                 default:
                     return tdee;
             }
@@ -605,6 +605,7 @@
                     let selectedFoods = [];
                     let mealCalories = 0;
                     
+                    // 为零食选择1-2个，其他餐选择1个主要食物
                     const numItems = mealType === 'snacks' ? Math.random() > 0.5 ? 2 : 1 : 1;
                     const foods = getRandomItems(availableFoods, numItems);
                     
@@ -622,5 +623,64 @@
                         calories: mealCalories
                     };
                 }
-            # 🎯 随机饮食训练计划生成器
+            });
 
+            return {
+                meals: mealPlan,
+                nutrition: {
+                    calories: Math.round(totalCalories),
+                    protein: Math.round(totalProtein),
+                    carbs: Math.round(totalCarbs),
+                    fat: Math.round(totalFat)
+                }
+            };
+        }
+
+        // 生成训练计划
+        function generateWorkoutPlan(workoutTypes, duration) {
+            const availableExercises = filterExercises([], workoutTypes);
+            
+            if (availableExercises.length === 0) {
+                return { exercises: [], summary: { duration: 0, calories: 0, exercises: 0 } };
+            }
+
+            let selectedExercises = [];
+            let totalDuration = 0;
+            let totalCalories = 0;
+
+            // 根据时长选择练习
+            while (totalDuration < duration && availableExercises.length > 0) {
+                const remainingTime = duration - totalDuration;
+                const suitableExercises = availableExercises.filter(ex => ex.duration <= remainingTime);
+                
+                if (suitableExercises.length === 0) break;
+                
+                const exercise = suitableExercises[Math.floor(Math.random() * suitableExercises.length)];
+                selectedExercises.push({...exercise});
+                totalDuration += exercise.duration;
+                totalCalories += exercise.calories;
+                
+                // 移除已选择的练习，避免重复
+                const index = availableExercises.indexOf(exercise);
+                availableExercises.splice(index, 1);
+            }
+
+            return {
+                exercises: selectedExercises,
+                summary: {
+                    duration: totalDuration,
+                    calories: Math.round(totalCalories),
+                    exercises: selectedExercises.length
+                }
+            };
+        }
+
+        // 生成计划主函数
+        function generatePlan() {
+            // 获取用户输入
+            const gender = document.getElementById('gender').value;
+            const age = parseInt(document.getElementById('age').value);
+            const weight = parseInt(document.getElementById('weight').value);
+            const height = parseInt(document.getElementById('height').value);
+            const goal = document.getElementById('goal').value;
+            const activity
